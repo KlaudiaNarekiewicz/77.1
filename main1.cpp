@@ -72,48 +72,8 @@ void zad2()
   cout << s << endl << endl;
 }
 
-void zad3() 
-{
-  cout << "Zadanie 3:" << endl;
-  cout << "a)" << endl;
-  int tab[26];
-  for (int i = 0; i < 26; i++) 
-  {
-    tab[i] = 0;
-  }
-  ifstream in("szyfr.txt");
-  string s;
-  float n = 0.0; 
-  while (in >> s) {
-    for (int i = 0; i < s.length(); i++) 
-	{
-      if (s[i] >= 'A' && s[i] <= 'Z') 
-	  {
-        n++;
-        tab[s[i] - 65]++;
-      }
-    }
-  }
-  for (int i = 0; i < 26; i++) 
-  {
-    cout << (char) (i + 65) << ": " << tab[i] << endl;
-  }
-  cout << endl;
-
-  cout << "b)" << endl;
-  float Ko = 0.0;
-  for (int i = 0; i < 26; i++) 
-  {
-    Ko += tab[i] * (tab[i] - 1);
-  }
-  Ko /= n * (n - 1);
-  float d = 0.0285 / (Ko - 0.0385);
-  cout << "Wartosc szacunkowa: " << fixed << setprecision(2) << d << endl;
-  cout << "Wartosc prawdziwa: " << 13 << endl;
-}
 
 int main() {
   zad1();
   zad2();
-  zad3();
 }
